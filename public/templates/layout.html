@@ -1,0 +1,72 @@
+<div class="content d-flex">
+    <div class="content__layout d-flex flex-column flex-shrink-1 border-end border-secondary-subtle">
+        <a href="/"
+           class="content__logo text-decoration-none border-bottom border-secondary-subtle">
+            <img
+                    class="bi pe-none"
+                    src="/images/logo.svg"
+                    alt="Logo image"
+                    width="100"
+                    height="40"
+                    loading="lazy"
+            />
+        </a>
+        <div class="content__aside min-vh-100 d-flex flex-column justify-content-between border-bottom border-secondary-subtle">
+            <div class="list-group" role="tablist">
+                <a href="/" class="list-group-item rounded border-0 active">
+                    <i class="bi bi-house me-2"></i>Home
+                </a>
+                <a href="/transactions" class="list-group-item rounded border-0">
+                    <i class="bi bi-cash-coin me-2"></i>Income&Expense Categories
+                </a>
+                <div class="category-toggle-wrapper rounded overflow-hidden">
+                    <button id="category-button" class="list-group-item d-flex justify-content-between align-items-center w-100 collapsed text-start border-0 rounded-0"
+                            data-bs-toggle="collapse" role="tab" data-bs-target="#category-collapse">
+                        Category
+                        <svg fill="#052C65" height="13px" width="13px"
+                             xmlns="http://www.w3.org/2000/svg"
+                             viewBox="0 0 492.004 492.004">
+                            <path
+                                    d="M382.678,226.804L163.73,7.86C158.666,2.792,151.906,0,144.698,0s-13.968,2.792-19.032,
+                                    7.86l-16.124,16.12 c-10.492,10.504-10.492,27.576,0,38.064L293.398,245.9l-184.06,
+                                    184.06c-5.064,5.068-7.86,11.824-7.86,19.028 c0,7.212,2.796,13.968,7.86,19.04l16.124,
+                                    16.116c5.068,5.068,11.824,7.86,19.032,7.86s13.968-2.792,19.032-7.86L382.678,265 c5.076-5.084,
+                                    7.864-11.872,7.848-19.088C390.542,238.668,387.754,231.884,382.678,226.804z">
+                            </path>
+                        </svg>
+                    </button>
+                    <div class="collapse" id="category-collapse">
+                        <ul class="list-unstyled mb-0">
+                            <li>
+                                <a href="/category/income"
+                                   class="list-group-item border-0">
+                                    Income
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/category/expense"
+                                   class="list-group-item border-0">
+                                    Expense
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="balance">
+                Balance: <span id="balance-amount" class="ms-2 text-primary fw-bold">$500</span>
+            </div>
+        </div>
+        <div class="ms-1 pt-3 ps-3">
+            <a role="button" style="cursor: pointer"
+               class="d-flex gap-3 align-items-center link-body-emphasis text-decoration-none">
+                <div class="rounded-circle bg-secondary-subtle d-flex align-items-center justify-content-center"
+                     style="width: 36px; height: 36px;">
+                    <i class="bi bi-person text-secondary-bg"></i>
+                </div>
+                <span id="user-name">Roman</span>
+            </a>
+        </div>
+    </div>
+    <div id="content__main" class="content__main flex-grow-1"></div>
+</div>

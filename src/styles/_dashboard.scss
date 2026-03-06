@@ -1,0 +1,38 @@
+.chart {
+  display: flex;
+  gap: 84px;
+  margin-top: 140px;
+
+  &__container {
+    max-width: 437px;
+  }
+
+  &__title {
+    font-size: 28px;
+    font-weight: 500;
+    color: $indigo-800;
+    padding-bottom: 20px;
+    text-align: center;
+  }
+}
+
+.period {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+
+  &__button {
+    width: 100px;
+  }
+
+  &__custom {
+    display: flex;
+    align-items: center;
+
+    & a {
+      padding: 9px 12px;
+      margin-inline: 5px 15px;
+    }
+  }
+}

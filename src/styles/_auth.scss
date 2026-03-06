@@ -1,0 +1,43 @@
+.auth {
+  .container {
+    min-height: 100vh;
+    display: flex;
+    place-items: center;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .form-check {
+    text-align: start;
+    margin-bottom: 0;
+
+    &-input {
+      margin-top: 0;
+    }
+  }
+
+  &__content {
+    width: 397px;
+  }
+
+  &__logo img {
+    margin-bottom: 60px;
+  }
+
+  .page-title {
+    margin-bottom: 20px;
+  }
+
+  &__inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  &__button {
+    width: 100%;
+    margin-top: 10px;
+  }
+}

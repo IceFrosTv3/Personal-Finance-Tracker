@@ -1,0 +1,165 @@
+<section class="container p-0">
+    <header class="page-title">Expense</header>
+    <div id="categories" class="categories row">
+        <article class="category-card"
+                 data-category-id="food">
+            <h3 id="category-card__title" class="category-card__title">Food</h3>
+            <div>
+                <button class="btn btn-primary" type="button" data-action="edit">
+                    Edit
+                </button>
+                <button class="btn btn-danger" type="button" data-action="delete"
+                        data-bs-toggle="modal" data-bs-target="#delete-category-modal">
+                    Delete
+                </button>
+            </div>
+        </article>
+        <article class="category-card"
+                 data-category-id="housing">
+
+            <h3 class="category-card__title">Housing</h3>
+            <div >
+                <button class="btn btn-primary" type="button" data-action="edit">
+                    Edit
+                </button>
+                <button class="btn btn-danger" type="button" data-action="delete"
+                        data-bs-toggle="modal" data-bs-target="#delete-category-modal">
+                    Delete
+                </button>
+            </div>
+        </article>
+        <article class="category-card"
+                 data-category-id="health">
+
+            <h3 class="category-card__title">Health</h3>
+            <div>
+                <button class="btn btn-primary" type="button" data-action="edit">
+                    Edit
+                </button>
+                <button class="btn btn-danger" type="button" data-action="delete"
+                        data-bs-toggle="modal" data-bs-target="#delete-category-modal">
+                    Delete
+                </button>
+            </div>
+        </article>
+        <article class="category-card"
+                 data-category-id="cafes">
+
+            <h3 class="category-card__title">Cafes</h3>
+            <div>
+                <button class="btn btn-primary" type="button" data-action="edit">
+                    Edit
+                </button>
+                <button class="btn btn-danger" type="button" data-action="delete"
+                        data-bs-toggle="modal" data-bs-target="#delete-category-modal">
+                    Delete
+                </button>
+            </div>
+        </article>
+        <article class="category-card"
+                 data-category-id="cars">
+
+            <h3 class="category-card__title">Cars</h3>
+            <div >
+                <button class="btn btn-primary" type="button" data-action="edit">
+                    Edit
+                </button>
+                <button class="btn btn-danger" type="button" data-action="delete"
+                        data-bs-toggle="modal" data-bs-target="#delete-category-modal">
+                    Delete
+                </button>
+            </div>
+        </article>
+        <article class="category-card"
+                 data-category-id="clothing">
+
+            <h3 class="category-card__title">Clothing</h3>
+            <div >
+                <button class="btn btn-primary" type="button" data-action="edit">
+                    Edit
+                </button>
+                <button class="btn btn-danger" type="button" data-action="delete"
+                        data-bs-toggle="modal" data-bs-target="#delete-category-modal">
+                    Delete
+                </button>
+            </div>
+        </article>
+        <article class="category-card"
+                 data-category-id="entertainment">
+
+            <h3 class="category-card__title">Entertainment</h3>
+            <div >
+                <button class="btn btn-primary" type="button" data-action="edit">
+                    Edit
+                </button>
+                <button class="btn btn-danger" type="button" data-action="delete"
+                        data-bs-toggle="modal" data-bs-target="#delete-category-modal">
+                    Delete
+                </button>
+            </div>
+        </article>
+        <article class="category-card"
+                 data-category-id="bills">
+
+            <h3 class="category-card__title">Bills</h3>
+            <div >
+                <button class="btn btn-primary" type="button" data-action="edit">
+                    Edit
+                </button>
+                <button class="btn btn-danger" type="button" data-action="delete"
+                        data-bs-toggle="modal" data-bs-target="#delete-category-modal">
+                    Delete
+                </button>
+            </div>
+        </article>
+        <article class="category-card"
+                 data-category-id="sport">
+
+            <h3 class="category-card__title">Sport</h3>
+            <div >
+                <button class="btn btn-primary" type="button" data-action="edit">
+                    Edit
+                </button>
+                <button class="btn btn-danger" type="button" data-action="delete"
+                        data-bs-toggle="modal" data-bs-target="#delete-category-modal">
+                    Delete
+                </button>
+            </div>
+        </article>
+
+        <button id="category-add-button" class="category-card" type="button">+</button>
+
+        <div class="modal fade" id="delete-category-modal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <span class="modal-text">
+                         Are you sure you want to delete this category? Related expenses will remain uncategorized.
+                    </span>
+                    <div>
+                        <button id="confirm-delete-category" type="button" class="btn btn-success me-2"
+                                data-bs-target="#confirm-delete-modal" data-bs-toggle="modal">
+                            Yes, delete
+                        </button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+                            Don't delete
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="confirm-delete-modal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered justify-content-center">
+                <div class="modal-content">
+                    <span id="result-text" class="modal-text">
+                            Category has been deleted
+                    </span>
+                    <div>
+                        <button id="result-button" type="button" class="btn btn-success" data-bs-dismiss="modal">
+                            Ok
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
