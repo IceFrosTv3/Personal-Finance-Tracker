@@ -24,7 +24,7 @@
 
 ```bash
 # Клонировать репозиторий
-git clone <repo-url>
+git clone https://github.com/IceFrosTv2/Personal-Finance-Tracker.git
 cd frontend
 
 # Установить зависимости

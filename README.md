@@ -24,7 +24,7 @@ A single-page application for tracking personal income and expenses. Manage cate
 
 ```bash
 # Clone the repository
-git clone <repo-url>
+git clone https://github.com/IceFrosTv2/Personal-Finance-Tracker.git
 cd frontend
 
 # Install dependencies
