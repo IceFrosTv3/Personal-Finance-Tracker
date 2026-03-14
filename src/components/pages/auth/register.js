@@ -1,0 +1,57 @@
+import { ValidatorForm } from "../../../utils/validator-form";
+import { AuthService } from "../../../services/auth-service";
+
+export class Register {
+    constructor (openNewRoute) {
+        this.openNewRoute = openNewRoute
+        const form = document.querySelector('.auth__inputs')
+        const rules = {
+            name: [
+                {
+                    regex: (value) => /^[A-Z]/.test(value),
+                    message: 'Name must start with a capital letter'
+                },
+                {
+                    regex: (value) => /^[A-Za-z\s]+$/.test(value),
+                    message: 'Name must contain only English letters'
+                },
+            ],
+            lastName: [
+                {
+                    regex: (value) => /^[A-Z]/.test(value),
+                    message: 'Lastname must start with a capital letter'
+                },
+                {
+                    regex: (value) => /^[A-Za-z\s]+$/.test(value),
+                    message: 'Lastname must contain only English letters'
+                },
+            ],
+            email: [
+                {
+                    regex: (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value),
+                    message: 'Enter valid email address'
+                },
+            ],
+            password: [
+                {
+                    regex: (value) => /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/.test(value),
+                    message: 'Password: at least 8 characters, with uppercase, lowercase, and a number.'
+                }
+            ],
+            passwordRepeat: [
+                {
+                    regex: (value) => {
+                        const passwordInput = document.querySelector('[data-validate="password"]')
+                        return value === passwordInput.value
+                    },
+                    message: 'Passwords do not match'
+                }
+            ],
+        }
+        new ValidatorForm(form, rules, async (data) => {
+            const registerResult = await AuthService.register(data);
+            if ( registerResult ) this.openNewRoute('/login');
+        });
+    }
+
+}

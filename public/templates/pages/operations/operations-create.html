@@ -1,0 +1,29 @@
+<section class="container p-0">
+    <header class="page-title">New operation</header>
+
+    <div class="operations-create">
+        <form class="form-group">
+            <select type="text" class="js-choice-type" aria-label="Type">
+                <option value="income">Income</option>
+                <option value="expenses">Expenses</option>
+            </select>
+            <select type="text" class="js-choice-category" aria-label="Category">
+                <option value="deposits">Deposits</option>
+                <option value="salary">Salary</option>
+                <option value="savings">Savings</option>
+                <option value="investments">investments</option>
+            </select>
+            <input type="text" class="form-control" placeholder="Amount in $..." aria-label="Amount">
+            <input type="text" class="form-control" placeholder="Date..." aria-label="Date">
+            <input type="text" class="form-control" placeholder="Note..." aria-label="Note">
+        </form>
+        <div class=" actions-group">
+            <a href="/operations" class="btn btn-success">
+                Create
+            </a>
+            <a href="/operations" class="btn btn-danger">
+                Cancel
+            </a>
+        </div>
+    </div>
+</section>

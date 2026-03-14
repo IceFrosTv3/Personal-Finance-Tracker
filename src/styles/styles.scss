@@ -1,0 +1,73 @@
+@use "bootstrap/scss/bootstrap" as *;
+@import "choices.js/src/styles/choices";
+@import "auth";
+@import "layout";
+@import "dashboard";
+@import "operations";
+
+// Layout styles ______________________________________________
+body {
+  font-family: "Roboto", sans-serif;
+  line-height: normal;
+  overflow-y: scroll;
+}
+
+.actions-group {
+  display: flex;
+  gap: 10px;
+}
+
+.page-title {
+  color: $blue-800;
+  font-size: 40px;
+  font-weight: 500;
+}
+
+//_______________________________________________________________
+.container {
+  margin-block: 80px;
+
+  .page-title {
+    margin-bottom: 40px;
+  }
+
+  .categories {
+    margin: 0;
+    gap: 20px;
+
+    .category-card {
+      flex: 0;
+      padding: 20px;
+      min-width: 352px;
+      height: 120px;
+      border: 1px solid $gray-400;
+
+      .btn {
+        padding: 11px 16px;
+        line-height: normal;
+      }
+    }
+  }
+}
+
+.modal-content {
+  padding: 40px;
+  text-align: center;
+  border-radius: 12px;
+  width: unset;
+
+  .modal-text {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: normal;
+    color: $indigo-800;
+    margin-bottom: 20px;
+  }
+}
+
+.category-create {
+  .form-control {
+    width: 33%;
+    margin-bottom: 20px;
+  }
+}

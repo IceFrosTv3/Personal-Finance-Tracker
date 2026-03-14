@@ -1,0 +1,53 @@
+.content__layout {
+  font-size: 14px;
+  padding-block: 40px;
+
+  .content__logo {
+    padding: 0 71px 20px 50px;
+  }
+
+  .content__aside {
+    padding: 60px 20px 20px;
+
+    .list-group-item {
+      color: $blue-800;
+      min-width: 234px;
+
+      & + .list-group-item.active {
+        margin: 0;
+      }
+
+      &.active {
+        color: white;
+      }
+    }
+
+    .category-toggle-wrapper {
+      border: 1px solid transparent;
+
+      & button svg {
+        transition: transform 0.2s;
+        transform-origin: center center;
+        transform: rotate(0deg);
+      }
+
+      &.active {
+        border: 1px solid $primary;
+
+        & button {
+          color: white;
+          background: $primary;
+
+          & svg {
+            fill: white;
+            transform: rotate(90deg);
+          }
+        }
+      }
+    }
+  }
+}
+
+.content__main {
+  margin: 20px;
+}
