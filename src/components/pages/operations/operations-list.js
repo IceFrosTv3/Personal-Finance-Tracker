@@ -1,7 +1,7 @@
 import { DatePicker } from "../../../utils/date-picker";
 import { SelectPeriod } from "../../../utils/select-period";
 
-export class TransactionsList {
+export class OperationsList {
     constructor (openNewRoute) {
         this.openNewRoute = openNewRoute;
         DatePicker.getDate('fromDate');

@@ -1,6 +1,4 @@
 import { Chart } from "chart.js/auto";
-import { TempusDominus } from '@eonasdan/tempus-dominus';
-import { biOneIcons } from '@eonasdan/tempus-dominus/dist/plugins/bi-one'
 import { DatePicker } from "../../utils/date-picker";
 import { SelectPeriod } from "../../utils/select-period";
 

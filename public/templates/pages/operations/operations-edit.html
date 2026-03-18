@@ -1,27 +1,27 @@
 <section class="container p-0">
-    <header class="page-title">New transaction</header>
+    <header class="page-title">Edit operations</header>
 
-    <div class="transactions-create">
+    <div class="operations-edit operation">
         <form class="form-group">
             <select type="text" class="js-choice-type" aria-label="Type">
-                <option value="income">Income</option>
+                <option value="income" selected>Income</option>
                 <option value="expenses">Expenses</option>
             </select>
             <select type="text" class="js-choice-category" aria-label="Category">
                 <option value="deposits">Deposits</option>
-                <option value="salary">Salary</option>
+                <option value="salary" selected>Salary</option>
                 <option value="savings">Savings</option>
                 <option value="investments">investments</option>
             </select>
-            <input type="text" class="form-control" placeholder="Amount in $..." aria-label="Amount">
-            <input type="text" class="form-control" placeholder="Date..." aria-label="Date">
+            <input type="text" class="form-control" placeholder="Amount in $..." aria-label="Amount" value="$500">
+            <input type="text" class="form-control" placeholder="Date..." aria-label="Date" value="11/09/2022">
             <input type="text" class="form-control" placeholder="Note..." aria-label="Note">
         </form>
-        <div class=" actions-group">
-            <a href="/transactions" class="btn btn-success">
+        <div class="actions-group">
+            <a href="/operations" class="btn btn-success">
                 Create
             </a>
-            <a href="/transactions" class="btn btn-danger">
+            <a href="/operations" class="btn btn-danger">
                 Cancel
             </a>
         </div>

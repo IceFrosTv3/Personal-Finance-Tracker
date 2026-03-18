@@ -16,7 +16,7 @@ export class Register {
                     message: 'Name must contain only English letters'
                 },
             ],
-            lastname: [
+            lastName: [
                 {
                     regex: (value) => /^[A-Z]/.test(value),
                     message: 'Lastname must start with a capital letter'
@@ -38,7 +38,7 @@ export class Register {
                     message: 'Password: at least 8 characters, with uppercase, lowercase, and a number.'
                 }
             ],
-            repeatPassword: [
+            passwordRepeat: [
                 {
                     regex: (value) => {
                         const passwordInput = document.querySelector('[data-validate="password"]')
@@ -48,8 +48,9 @@ export class Register {
                 }
             ],
         }
-        new ValidatorForm(form, rules, (data) => {
-            AuthService.register(data)
+        new ValidatorForm(form, rules, async (data) => {
+            const registerResult = await AuthService.register(data);
+            if ( registerResult ) this.openNewRoute('/login');
         });
     }
 

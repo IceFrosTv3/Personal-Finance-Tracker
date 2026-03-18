@@ -1,5 +1,6 @@
 import { ValidatorForm } from "../../../utils/validator-form";
 import { AuthService } from "../../../services/auth-service";
+import { AuthUtils } from "../../../utils/auth-utils";
 
 export class Login {
     constructor (openNewRoute) {
@@ -13,8 +14,15 @@ export class Login {
                 },
             ]
         }
-        new ValidatorForm(form, rules, (data) => {
-            AuthService.login(data)
+        new ValidatorForm(form, rules, async (data) => {
+            data.rememberMe = data.rememberMe === 'on';
+            const loginResult = await AuthService.login(data)
+            if ( loginResult ) {
+                const { accessToken, refreshToken } = loginResult.tokens;
+                const {name, lastName, id} = loginResult.user;
+                AuthUtils.setAuthInfo(accessToken, refreshToken, {name, lastName, id}, data.rememberMe);
+                this.openNewRoute('/');
+            }
         });
     }
 }

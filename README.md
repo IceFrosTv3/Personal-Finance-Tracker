@@ -29,7 +29,19 @@ cd frontend
 
 # Install dependencies
 npm install
+```
 
+### Environment variables
+
+A `.env` file must be placed in the project root with the following content:
+
+```env
+VITE_HOST="http://localhost:3000"
+```
+
+`VITE_HOST` — the base URL of the backend API server.
+
+```bash
 # Start development server
 npm run dev
 
@@ -51,10 +63,11 @@ frontend/
 │           │   ├── login.html
 │           │   └── register.html
 │           ├── dashboard.html
-│           ├── transactions/
-│           │   ├── transactions-list.html
-│           │   ├── transactions-create.html
-│           │   └── transactions-edit.html
+│           ├── 404.html
+│           ├── operations/
+│           │   ├── operations-list.html
+│           │   ├── operations-create.html
+│           │   └── operations-edit.html
 │           ├── incomes/
 │           │   ├── income-categories.html
 │           │   ├── income-create.html
@@ -67,18 +80,21 @@ frontend/
 │   ├── main.js                          # Entry point
 │   ├── router.js                        # Client-side router
 │   ├── config/
-│   │   └── config.js                    # App configuration (API, etc.)
+│   │   └── config.js                    # App configuration (API, routes)
+│   ├── services/
+│   │   └── auth-service.js              # Auth API calls (login, register, logout)
 │   ├── components/
-│   │   ├── common.js                    # Shared components (layout, sidebar)
+│   │   ├── layout.js                    # Sidebar and menu logic
 │   │   └── pages/
 │   │       ├── auth/
 │   │       │   ├── login.js
 │   │       │   └── register.js
 │   │       ├── dashboard.js
-│   │       ├── transactions/
-│   │       │   ├── transactions-list.js
-│   │       │   ├── transactions-create.js
-│   │       │   └── transactions-edit.js
+│   │       ├── operations/
+│   │       │   ├── operations-list.js
+│   │       │   ├── operations-create.js
+│   │       │   └── operations-edit.js
+│   │       ├── base-categories.js       # Base class for category pages
 │   │       ├── incomes/
 │   │       │   ├── income-categories.js
 │   │       │   ├── income-create.js
@@ -88,14 +104,17 @@ frontend/
 │   │           ├── expense-create.js
 │   │           └── expense-edit.js
 │   ├── utils/
-│   │   ├── validator-form.js            # Universal form validator
-│   │   └── date-picker.js              # Date picker initialization
+│   │   ├── auth-utils.js               # Token storage and refresh logic
+│   │   ├── http-utils.js               # HTTP request wrapper with auth
+│   │   ├── validator-form.js           # Universal form validator
+│   │   ├── date-picker.js              # Date picker initialization
+│   │   └── select-period.js            # Period filter (week/month/year/all)
 │   └── styles/
 │       ├── styles.scss                  # Styles entry point
 │       ├── _auth.scss
 │       ├── _layout.scss
 │       ├── _dashboard.scss
-│       └── _transactions.scss
+│       └── _operations.scss
 └── index.html
 ```
 
@@ -105,20 +124,19 @@ frontend/
 
 - Registration and login with client-side form validation
 - Dashboard with balance overview
-- Income and expense category management (create, edit, delete)
-- Transaction list with period filtering
+- Income and expense category management (create, edit, delete with modal confirmation)
+- Transaction list with period filtering (week / month / year / all time / custom range)
 - Create and edit transactions
 - Income/expense visualization with pie charts (Chart.js)
 - Client-side routing without page reload
+- Responsive layout: collapsible sidebar on desktop, slide-in drawer with overlay on mobile (< 650px)
 
 ---
 
 ## Roadmap
 
-- Add backend and REST API
 - Implement pagination for the transaction list
 - Add CSV/Excel data export
-- Implement responsive layout for mobile devices
 - Add dark theme support
 
 ---

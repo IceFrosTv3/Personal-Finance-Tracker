@@ -25,12 +25,12 @@
                     <div class="invalid-feedback"></div>
                 </div>
                 <div class="input-group ">
-                    <span class="input-group-text text-secondary" id="lastname-ico">
+                    <span class="input-group-text text-secondary" id="lastName-ico">
                         <i class="bi bi-person"></i>
                     </span>
-                    <input type="text" class="form-control" name="lastname"
+                    <input type="text" class="form-control" name="lastName"
                            placeholder="Lastname" aria-label="Lastname"
-                           aria-describedby="lastname-ico" data-validate="lastname"
+                           aria-describedby="lastName-ico" data-validate="lastName"
                            data-label="Please enter your last name" required>
                     <div class="invalid-feedback"></div>
                 </div>
@@ -59,16 +59,28 @@
                     <span class="input-group-text text-secondary" id="repeat-password-ico">
                       <i class="bi bi-lock"></i>
                     </span>
-                    <input type="password" class="form-control" placeholder="Repeat Password"
-                           aria-label="Repeat Password"
-                           aria-describedby="repeatPassword-ico"
-                           data-validate="repeatPassword" pattern=".{8,}"
+                    <input type="password" class="form-control" name="passwordRepeat"
+                           placeholder="Repeat Password"
+                           aria-label="Repeat Password" aria-describedby="passwordRepeat-ico"
+                           data-validate="passwordRepeat" pattern=".{8,}"
                            data-label="Please repeat password" required>
                     <div class="invalid-feedback"></div>
                 </div>
                 <button type="submit" class="btn btn-primary auth__button">Sign Up</button>
             </form>
             <p>Registered? <a href="/login">Sign In</a></p>
+        </div>
+        <div class="toast-container position-fixed bottom-0 end-0 p-3" data-bs-autohide="true" data-bs-delay="5000">
+            <div class="toast rounded-3 shadow align-items-center text-white bg-danger border-0" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                    <i class="bi bi-exclamation-triangle me-2"></i>
+                    <strong class="me-auto">Error</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body">
+                    Error message
+                </div>
+            </div>
         </div>
     </div>
 </div>

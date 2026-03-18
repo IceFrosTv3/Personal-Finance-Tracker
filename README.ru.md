@@ -29,7 +29,19 @@ cd frontend
 
 # Установить зависимости
 npm install
+```
 
+### Переменные окружения
+
+В корне проекта необходимо разместить файл `.env` следующего содержания:
+
+```env
+VITE_HOST="http://localhost:3000"
+```
+
+`VITE_HOST` — базовый URL сервера бэкенда.
+
+```bash
 # Запустить в режиме разработки
 npm run dev
 
@@ -51,10 +63,11 @@ frontend/
 │           │   ├── login.html
 │           │   └── register.html
 │           ├── dashboard.html
-│           ├── transactions/
-│           │   ├── transactions-list.html
-│           │   ├── transactions-create.html
-│           │   └── transactions-edit.html
+│           ├── 404.html
+│           ├── operations/
+│           │   ├── operations-list.html
+│           │   ├── operations-create.html
+│           │   └── operations-edit.html
 │           ├── incomes/
 │           │   ├── income-categories.html
 │           │   ├── income-create.html
@@ -67,18 +80,21 @@ frontend/
 │   ├── main.js                          # Точка входа
 │   ├── router.js                        # Клиентский роутер
 │   ├── config/
-│   │   └── config.js                    # Конфигурация приложения (API и др.)
+│   │   └── config.js                    # Конфигурация приложения (API, маршруты)
+│   ├── services/
+│   │   └── auth-service.js              # API-запросы авторизации (login, register, logout)
 │   ├── components/
-│   │   ├── common.js                    # Общие компоненты (layout, сайдбар)
+│   │   ├── layout.js                    # Логика сайдбара и меню
 │   │   └── pages/
 │   │       ├── auth/
 │   │       │   ├── login.js
 │   │       │   └── register.js
 │   │       ├── dashboard.js
-│   │       ├── transactions/
-│   │       │   ├── transactions-list.js
-│   │       │   ├── transactions-create.js
-│   │       │   └── transactions-edit.js
+│   │       ├── operations/
+│   │       │   ├── operations-list.js
+│   │       │   ├── operations-create.js
+│   │       │   └── operations-edit.js
+│   │       ├── base-categories.js       # Базовый класс для страниц категорий
 │   │       ├── incomes/
 │   │       │   ├── income-categories.js
 │   │       │   ├── income-create.js
@@ -88,14 +104,17 @@ frontend/
 │   │           ├── expense-create.js
 │   │           └── expense-edit.js
 │   ├── utils/
-│   │   ├── validator-form.js            # Универсальный валидатор форм
-│   │   └── date-picker.js              # Инициализация датапикера
+│   │   ├── auth-utils.js               # Хранение токенов и логика обновления
+│   │   ├── http-utils.js               # HTTP-обёртка с авторизацией
+│   │   ├── validator-form.js           # Универсальный валидатор форм
+│   │   ├── date-picker.js              # Инициализация датапикера
+│   │   └── select-period.js            # Фильтр периода (неделя/месяц/год/всё)
 │   └── styles/
 │       ├── styles.scss                  # Точка входа стилей
 │       ├── _auth.scss
 │       ├── _layout.scss
 │       ├── _dashboard.scss
-│       └── _transactions.scss
+│       └── _operations.scss
 └── index.html
 ```
 
@@ -105,20 +124,19 @@ frontend/
 
 - Регистрация и авторизация с клиентской валидацией форм
 - Просмотр баланса и сводки на дашборде
-- Управление категориями доходов и расходов (создание, редактирование, удаление)
-- Список транзакций с фильтрацией по периоду
+- Управление категориями доходов и расходов (создание, редактирование, удаление с подтверждением через модальное окно)
+- Список транзакций с фильтрацией по периоду (неделя / месяц / год / всё время / произвольный диапазон)
 - Создание и редактирование транзакций
 - Визуализация доходов и расходов через круговые графики (Chart.js)
 - Клиентский роутинг без перезагрузки страницы
+- Адаптивная вёрстка: сворачиваемый сайдбар на десктопе, выдвижное меню с оверлеем на мобиле (< 650px)
 
 ---
 
 ## Планы по доработке
 
-- Добавить серверную часть и REST API
 - Реализовать постраничную навигацию в списке транзакций
 - Добавить экспорт данных в CSV/Excel
-- Реализовать адаптивную вёрстку для мобильных устройств
 - Добавить тёмную тему
 
 ---

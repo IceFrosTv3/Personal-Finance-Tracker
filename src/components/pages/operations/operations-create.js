@@ -1,9 +1,10 @@
 import Choices from "choices.js";
 
-export class TransactionsEdit {
+export class OperationsCreate {
     constructor (openNewRoute) {
         this.openNewRoute = openNewRoute
 
+        // const element = document.querySelector('.js-choice');
         new Choices('.js-choice-type', {
             searchEnabled: false,
             placeholderValue: "Type...",
@@ -18,5 +19,6 @@ export class TransactionsEdit {
                 containerOuter: ['choices', 'form-control']
             }
         });
+
     }
 }
