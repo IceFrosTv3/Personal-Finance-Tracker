@@ -19,6 +19,7 @@ export class Layout {
         this.initCollapse();
         this.initUserInfo();
         this.initLogout();
+        this.initTheme();
 
         await this.getBalance();
         this.updateBalance();
@@ -37,6 +38,34 @@ export class Layout {
     static initUserInfo () {
         const { userInfo } = TokensUtils.getAuthInfo();
         document.getElementById('user-name').textContent = `${userInfo.name} (${userInfo.lastName})`;
+    }
+
+    static initTheme () {
+        const html = document.documentElement;
+        const button = document.getElementById('theme-toggle');
+        const icon = button.querySelector('i');
+        const label = button.querySelector('span');
+
+        if ( localStorage.getItem('theme') === 'dark' ) {
+            html.setAttribute('data-bs-theme', 'dark');
+            icon.className = 'bi bi-sun me-2';
+            label.textContent = 'Light theme';
+        }
+
+        button.addEventListener('click', () => {
+            const isDark = html.getAttribute('data-bs-theme') === 'dark';
+            if ( isDark ) {
+                html.removeAttribute('data-bs-theme');
+                icon.className = 'bi bi-moon me-2';
+                label.textContent = 'Dark theme';
+                localStorage.setItem('theme', 'light');
+            } else {
+                html.setAttribute('data-bs-theme', 'dark');
+                icon.className = 'bi bi-sun me-2';
+                label.textContent = 'Light theme';
+                localStorage.setItem('theme', 'dark');
+            }
+        });
     }
 
     static initLogout () {

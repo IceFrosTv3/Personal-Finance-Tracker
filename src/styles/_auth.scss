@@ -22,6 +22,10 @@
     width: clamp(340px, 27.57vw, 397px);
   }
 
+  &__logo {
+    text-decoration: none;
+  }
+
   &__logo img {
     margin-bottom: 60px;
 
@@ -39,6 +43,10 @@
     flex-direction: column;
     gap: 10px;
     margin-bottom: 10px;
+
+    .input-group-text {
+      color: var(--bs-secondary-color);
+    }
   }
 
   &__button {

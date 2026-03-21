@@ -1,8 +1,7 @@
 import { Dashboard } from "./components/pages/dashboard.js";
 import { OperationsList } from "./components/pages/operations/operations-list.js";
 import { Layout } from "./components/layout.js";
-import { OperationsCreate } from "./components/pages/operations/operations-create";
-import { OperationsEdit } from "./components/pages/operations/operations-edit";
+import { OperationsForm } from "./components/pages/operations/operations-form";
 import { Login } from "./components/pages/auth/login";
 import { Register } from "./components/pages/auth/register";
 import config from "./config/config";
@@ -64,19 +63,17 @@ export class Router {
             {
                 route: routes.operations.create,
                 title: 'Create Operation',
-                filePathTemplate: '/templates/pages/operations/operations-create.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new OperationsCreate(this.openNewRoute)
+                    new OperationsForm(this.openNewRoute)
                 },
             },
             {
                 route: routes.operations.edit,
                 title: 'Edit Operation',
-                filePathTemplate: '/templates/pages/operations/operations-edit.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new OperationsEdit(this.openNewRoute)
+                    new OperationsForm(this.openNewRoute)
                 },
             },
             {

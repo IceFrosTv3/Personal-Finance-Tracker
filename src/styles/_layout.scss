@@ -21,7 +21,7 @@
     line-height: 1.2;
     z-index: 10;
     border: none;
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(var(--bs-body-bg-rgb), 0.85);
     backdrop-filter: blur(6px);
     border-radius: 8px;
     padding: 4px 8px;
@@ -37,7 +37,7 @@
 
   &__layout {
     display: flex;
-    background: var(--bs-white);
+    background: var(--bs-body-bg);
     flex-direction: column;
     font-size: clamp(0.75rem, 1.5vw, 0.88rem);
     padding-block: 40px;
@@ -165,17 +165,33 @@
     aspect-ratio: 1;
     border-radius: 50%;
     margin-right: 16px;
+    background-color: var(--bs-secondary-bg-subtle);
+    color: var(--bs-secondary-color);
 
     &::before {
       font-size: 16px;
     }
   }
 
+  #balance-amount {
+    margin-left: 0.5rem;
+    color: var(--bs-primary);
+    font-weight: 700;
+  }
+
+  .dropdown-menu {
+    box-shadow: var(--bs-box-shadow);
+  }
+
+  .list-unstyled {
+    margin-bottom: 0;
+  }
+
   &__footer {
     display: flex;
     align-items: center;
     border: none;
-    background-color: white;
+    background-color: var(--bs-body-bg);
     padding: 20px 20px 0;
     white-space: wrap;
 

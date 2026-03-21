@@ -13,7 +13,7 @@ export class BaseCategoriesEdit {
         const { title: categoryName } = await CategoriesService.getCategoriesByName(this.type, this.categoryId);
 
         document.getElementById('content__main').innerHTML = `
-            <section class="container p-0">
+            <section class="container">
                 <h1 class="page-title">Edit ${this.type} category</h1>
                 <div class="category__edit">
                     <input type="text" id="category-edit__input" class="form-control" 

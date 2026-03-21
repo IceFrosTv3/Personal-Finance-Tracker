@@ -38,7 +38,7 @@
                         </svg>
                     </button>
                     <div class="collapse" id="category-collapse">
-                        <ul class="list-unstyled mb-0">
+                        <ul class="list-unstyled">
                             <li>
                                 <a href="/categories/income"
                                    class="list-group-item ">
@@ -56,17 +56,23 @@
                 </div>
             </div>
             <div class="balance" data-bs-toggle="modal" data-bs-target="#updateBalance">
-                Balance: <span id="balance-amount" class="ms-2 text-primary fw-bold">Balance</span>
+                Balance: <span id="balance-amount">Balance</span>
             </div>
         </div>
         <div class="dropdown">
             <button
                class="content__footer dropdown-toggle" type="button"
                data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="content__user bi bi-person bg-secondary-subtle text-secondary"></i>
+                <i class="content__user bi bi-person"></i>
                 <span id="user-name">Roman Chernoff</span>
             </button>
-            <ul class="dropdown-menu shadow">
+            <ul class="dropdown-menu">
+                <li>
+                    <button id="theme-toggle" class="dropdown-item" type="button">
+                        <i class="bi bi-moon me-2"></i><span>Dark theme</span>
+                    </button>
+                </li>
+                <li><hr class="dropdown-divider"></li>
                 <li><a id="logout" class="dropdown-item" href="/login">Sign out</a></li>
             </ul>
         </div>

@@ -41,14 +41,12 @@ export class HttpUtils {
                         // request again
                         return this.request(url, method, useAuth, body)
                     }
-
-                    return {
-                        error: true
-                    }
+                    location.href = '/login';
+                    return { error: true }
                 }
                 return {
                     error: true,
-                    status:response.status,
+                    status: response.status,
                     response: json,
                 };
             }

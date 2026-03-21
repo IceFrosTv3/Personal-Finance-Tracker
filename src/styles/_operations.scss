@@ -1,6 +1,6 @@
 @use "variables";
 
-.income-and-expenses {
+.operations {
   display: flex;
   flex-direction: column;
   gap: clamp(10px, 2.78vw, 40px);
@@ -35,9 +35,30 @@
     }
   }
 
-.btn {
-  font-size: clamp(12px, 1.1vw, 1rem);
+  .btn {
+    font-size: clamp(12px, 1.1vw, 1rem);
+  }
 }
+
+#pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+
+  .pagination {
+    margin-bottom: 0;
+  }
+
+  &__info {
+    color: var(--bs-secondary-color);
+    font-size: 0.875rem;
+  }
+}
+
+.type {
+  &--income { color: var(--bs-success); }
+  &--expense { color: var(--bs-danger); }
 }
 
 //____________________________________OPERATIONS CREATE____________________________
@@ -47,35 +68,6 @@
     flex-direction: column;
     gap: 10px;
     width: min(100%, 397px);
-  }
-
-  .choices[data-type*=select-one] {
-    margin: 0;
-    padding: 0;
-
-    & .choices__inner {
-      background-color: white;
-      display: flex;
-      align-items: center;
-      min-height: 38px;
-      padding: 0.375rem 0.75rem;
-      border: 0;
-      //font-size: 16px;
-
-      .choices__list--single {
-        padding: 0;
-
-        .choices__placeholder {
-          color: rgba(33, 37, 41, 0.75);
-          opacity: 1;
-          font-size: 1rem;
-        }
-      }
-    }
-
-    &::after {
-      display: none;
-    }
   }
 
   .actions-group {

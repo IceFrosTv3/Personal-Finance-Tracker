@@ -12,20 +12,28 @@ export class DatePicker {
                     clear: true,
                 },
                 components: {
-                    clock: false
+                    clock: false,
                 },
             },
         localization: {
-            locale: 'en-GB',
             startOfTheWeek: 1,
             dayViewHeaderFormat: { month: 'long', year: 'numeric' },
         },
     }
 
-    static getDate (id) {
+    static getDate (id, onChange) {
         const datePickerElement = document.getElementById(id);
+
         datePickerElement.addEventListener('change.td', (e) => {
-            datePickerElement.querySelector('span').textContent = e.detail.date.toLocaleDateString('en-GB')
+            const date = e.detail.date;
+            const formatedDate = date.toLocaleDateString();
+            const span = datePickerElement.querySelector('span');
+            if ( span ) {
+                span.textContent = formatedDate;
+            } else {
+                datePickerElement.value = formatedDate;
+            }
+            if ( onChange ) onChange(date);
         })
         return new TempusDominus(datePickerElement, this.datePickerOptions);
     }
