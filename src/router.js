@@ -1,18 +1,14 @@
 import { Dashboard } from "./components/pages/dashboard.js";
 import { OperationsList } from "./components/pages/operations/operations-list.js";
-import { IncomeCategories } from "./components/pages/incomes/income-categories.js";
-import { ExpenseCategories } from "./components/pages/expenses/expense-categories.js";
 import { Layout } from "./components/layout.js";
-import { IncomeCreate } from "./components/pages/incomes/income-create";
-import { IncomeEdit } from "./components/pages/incomes/income-edit";
-import { ExpenseCreate } from "./components/pages/expenses/expense-create";
-import { ExpenseEdit } from "./components/pages/expenses/expense-edit";
-import { OperationsCreate } from "./components/pages/operations/operations-create";
-import { OperationsEdit } from "./components/pages/operations/operations-edit";
+import { OperationsForm } from "./components/pages/operations/operations-form";
 import { Login } from "./components/pages/auth/login";
 import { Register } from "./components/pages/auth/register";
 import config from "./config/config";
-import { AuthUtils } from "./utils/auth-utils";
+import { TokensUtils } from "./utils/tokens-utils";
+import { BaseCategories } from "./components/pages/base-categories/base-categories";
+import { BaseCategoriesCreate } from "./components/pages/base-categories/base-categories-create";
+import { BaseCategoriesEdit } from "./components/pages/base-categories/base-categories-edit";
 
 const { routes } = config;
 
@@ -67,73 +63,65 @@ export class Router {
             {
                 route: routes.operations.create,
                 title: 'Create Operation',
-                filePathTemplate: '/templates/pages/operations/operations-create.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new OperationsCreate(this.openNewRoute)
+                    new OperationsForm(this.openNewRoute)
                 },
             },
             {
                 route: routes.operations.edit,
                 title: 'Edit Operation',
-                filePathTemplate: '/templates/pages/operations/operations-edit.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new OperationsEdit(this.openNewRoute)
+                    new OperationsForm(this.openNewRoute)
                 },
             },
             {
                 route: routes.categories.income.list,
                 title: 'Income Categories',
-                filePathTemplate: '/templates/pages/incomes/income-categories.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new IncomeCategories(this.openNewRoute)
+                    new BaseCategories(this.openNewRoute, 'income')
                 },
             },
             {
                 route: routes.categories.income.create,
                 title: 'Create Income',
-                filePathTemplate: '/templates/pages/incomes/income-create.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new IncomeCreate(this.openNewRoute)
+                    new BaseCategoriesCreate(this.openNewRoute, 'income')
                 },
             },
             {
                 route: routes.categories.income.edit,
                 title: 'Edit Income',
-                filePathTemplate: '/templates/pages/incomes/income-edit.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new IncomeEdit(this.openNewRoute)
+                    new BaseCategoriesEdit(this.openNewRoute, 'income')
                 },
             },
             {
                 route: routes.categories.expense.list,
                 title: 'Expense Categories',
-                filePathTemplate: '/templates/pages/expenses/expense-categories.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new ExpenseCategories(this.openNewRoute)
+                    new BaseCategories(this.openNewRoute, 'expense')
                 },
             },
             {
                 route: routes.categories.expense.create,
                 title: 'Create Expense',
-                filePathTemplate: '/templates/pages/expenses/expense-create.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new ExpenseCreate(this.openNewRoute)
+                    new BaseCategoriesCreate(this.openNewRoute, 'expense')
                 },
             },
             {
                 route: routes.categories.expense.edit,
                 title: 'Edit Expense',
-                filePathTemplate: '/templates/pages/expenses/expense-edit.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new ExpenseEdit(this.openNewRoute)
+                    new BaseCategoriesEdit(this.openNewRoute, 'expense')
                 },
             },
         ];
@@ -182,37 +170,37 @@ export class Router {
         if ( !newRoute ) {
             return await this.openNewRoute(routes.notFound)
         }
-        const refreshToken = AuthUtils.getAuthInfo(AuthUtils.refreshTokenKey);
+        const refreshToken = TokensUtils.getAuthInfo(TokensUtils.refreshTokenKey);
         if ( newRoute.useLayout && !refreshToken ) return await this.openNewRoute('/login')
         if ( !newRoute.useLayout ) {
             this.contentMain = null;
-            if (refreshToken && newRoute.route !== routes.notFound ) return await this.openNewRoute('/')
+            if ( refreshToken && newRoute.route !== routes.notFound ) return await this.openNewRoute('/')
         }
 
         if ( newRoute.title ) {
             this.titlePageElement.textContent = newRoute.title + ' | Lumincoin Finance';
         }
 
-        if ( newRoute.filePathTemplate ) {
-            if ( newRoute.useLayout ) {
-                if ( !this.contentMain ) {
-                    this.contentApp.innerHTML = await fetch(newRoute.useLayout)
-                        .then(response => response.text());
-                    Layout.initCategoryLayout();
-                    Layout.initSidebarToggle();
-                    this.contentMain = document.getElementById('content__main')
-                }
-                Layout.closeSidebar();
-                Layout.syncCategoryLayout();
-                Layout.activateMenuItem(newRoute);
+        if ( newRoute.useLayout ) {
+            if ( !this.contentMain ) {
+                this.contentApp.innerHTML = await fetch(newRoute.useLayout)
+                    .then(response => response.text());
+                await Layout.initCategoryLayout();
+                Layout.initSidebarToggle();
+                this.contentMain = document.getElementById('content__main')
             }
+            Layout.closeSidebar();
+            Layout.syncCategoryLayout();
+            Layout.activateMenuItem(newRoute);
+        }
 
+        if ( newRoute.filePathTemplate ) {
             (this.contentMain || this.contentApp).innerHTML = await fetch(newRoute.filePathTemplate)
                 .then(response => response.text());
+        }
 
-            if ( newRoute.load ) {
-                newRoute.load();
-            }
+        if ( newRoute.load ) {
+            newRoute.load();
         }
     }
 }

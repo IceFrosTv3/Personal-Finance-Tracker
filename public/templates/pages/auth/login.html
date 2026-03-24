@@ -2,7 +2,7 @@
     <div class="container">
         <div class="auth__content">
             <a href="/login"
-               class="auth__logo text-decoration-none">
+               class="auth__logo">
                 <img
                         class="bi pe-none"
                         src="/images/logo.svg"
@@ -15,7 +15,7 @@
             <h1 class="page-title">Sign In</h1>
             <form class="auth__inputs" novalidate>
                 <div class="input-group">
-                    <span class="input-group-text text-secondary" id="email-ico">
+                    <span class="input-group-text" id="email-ico">
                         <i class="bi bi-envelope-open"></i>
                     </span>
                     <input type="email" class="form-control" name="email"
@@ -25,7 +25,7 @@
                     <div class="invalid-feedback"></div>
                 </div>
                 <div class="input-group">
-                    <span class="input-group-text text-secondary" id="password-ico">
+                    <span class="input-group-text" id="password-ico">
                       <i class="bi bi-lock"></i>
                     </span>
                     <input type="password" class="form-control" name="password"
@@ -44,19 +44,6 @@
                 <button class="btn btn-primary auth__button">Sign In</button>
             </form>
             <p>Don't have an account? <a href="/register">Sign Up</a></p>
-        </div>
-        <div class="toast-container position-fixed bottom-0 end-0 p-3" data-bs-autohide="true" data-bs-delay="5000">
-            <div class="toast rounded-3 shadow align-items-center text-white bg-danger border-0" role="alert"
-                 aria-live="assertive" aria-atomic="true">
-                <div class="toast-header">
-                    <i class="bi bi-exclamation-triangle me-2"></i>
-                    <strong class="me-auto">Error</strong>
-                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-                </div>
-                <div class="toast-body">
-                    Error message
-                </div>
-            </div>
         </div>
     </div>
 </div>

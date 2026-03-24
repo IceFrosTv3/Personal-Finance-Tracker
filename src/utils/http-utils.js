@@ -1,4 +1,4 @@
-import { AuthUtils } from "./auth-utils";
+import { TokensUtils } from "./tokens-utils";
 import config from "../config/config";
 
 export class HttpUtils {
@@ -12,9 +12,9 @@ export class HttpUtils {
             },
         };
         if ( useAuth ) {
-            const token = AuthUtils.getAuthInfo(AuthUtils.accessTokenKey);
+            const token = TokensUtils.getAuthInfo(TokensUtils.accessTokenKey);
             if ( token ) {
-                params.headers.authorization = token;
+                params.headers['x-auth-token'] = token;
             }
         }
 
@@ -35,21 +35,18 @@ export class HttpUtils {
             if ( response.status < 200 || response.status >= 300 ) {
                 if ( useAuth && response.status === 401 ) {
                     // 2 tokens are old or invalid
-                    const result = await AuthUtils.updateRefreshToken();
+                    const result = await TokensUtils.updateRefreshToken();
 
                     if ( result ) {
                         // request again
                         return this.request(url, method, useAuth, body)
                     }
-
-                    return {
-                        error: true,
-                        redirect: '/login'
-                    }
+                    location.href = '/login';
+                    return { error: true }
                 }
                 return {
                     error: true,
-                    status:response.status,
+                    status: response.status,
                     response: json,
                 };
             }

@@ -1,5 +1,4 @@
 @use "bootstrap/scss/bootstrap" as *;
-@use "choices.js/src/styles/choices";
 @use "variables";
 @use "auth";
 @use "layout";
@@ -38,7 +37,10 @@ body {
   margin: 0;
 
   .category-card {
+    display: flex;
+    flex-direction: column;
     flex: 1 0 200px;
+    justify-content: center;
     max-width: 352px;
     padding: 20px;
     height: 120px;
@@ -47,6 +49,12 @@ body {
     .btn {
       padding: 11px 16px;
       line-height: normal;
+    }
+
+    &__actions {
+      display: flex;
+      gap: 10px;
+      margin-top: auto;
     }
   }
 }
@@ -93,19 +101,12 @@ body {
   align-items: center;
   flex-wrap: wrap;
 
-  @media (width < 1370px) {
-    flex-wrap: wrap;
-  }
-
   @media (width < 871px) {
     gap: 10px;
   }
 
   @media (width < 446px) {
-    overflow-x: auto;
-    flex-wrap: nowrap;
-    padding-bottom: 10px;
-    gap: 5px;
+    column-gap: 6px;
   }
 
   &__button {
@@ -117,8 +118,9 @@ body {
     }
 
     @media (width < 446px) {
+      flex: 1 1 calc(33.33% - 6px);
       width: auto;
-      padding: 5px;
+      font-size: 0.75rem;
     }
   }
 
@@ -126,11 +128,18 @@ body {
     display: flex;
     align-items: center;
 
+    @media (width < 446px) {
+      flex-basis: 100%;
+      justify-content: center;
+    }
+
     & button {
-      width: 75px;
+      width: 85px;
       text-align: center;
       padding: 0;
       margin-inline: 5px;
+      background-color: var(--bs-body-bg);
+      color: var(--bs-secondary-color);
       border: none;
       text-decoration: underline;
     }
@@ -140,9 +149,10 @@ body {
 //_______________________________________________________________________________
 
 
-.category-create {
+.category__create, .category__edit {
+  width: min(100%, 397px);
+
   .form-control {
-    width: 33%;
     margin-bottom: 20px;
   }
 }
