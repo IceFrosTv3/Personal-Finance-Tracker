@@ -1,21 +1,21 @@
-# Lumincash — Personal Finance Tracker
+﻿# Lumincash вЂ” Personal Finance Tracker
 
 A single-page application for tracking personal income and expenses. Manage categories, view transactions, and analyze your budget through charts.
 
-> [Документация на русском языке](./README.ru.md)
+> [Р”РѕРєСѓРјРµРЅС‚Р°С†РёСЏ РЅР° СЂСѓСЃСЃРєРѕРј СЏР·С‹РєРµ](./README.ru.md)
 
 ---
 
 ## Tech Stack
 
-- **HTML5** — page templates
-- **SCSS** — styling (split into partials)
-- **TypeScript** — app logic, routing, components
-- **Vite** — bundler
-- **npm** — package manager
-- **Bootstrap 5** + **Bootstrap Icons** — UI components and icons
-- **Chart.js** — income/expense pie charts
-- **Tempus Dominus** — date picker
+- **HTML5** вЂ” page templates
+- **SCSS** вЂ” styling (split into partials)
+- **TypeScript** вЂ” app logic, routing, components
+- **Vite** вЂ” bundler
+- **npm** вЂ” package manager
+- **Bootstrap 5** + **Bootstrap Icons** вЂ” UI components and icons
+- **Chart.js** вЂ” income/expense pie charts
+- **Tempus Dominus** вЂ” date picker
 
 ---
 
@@ -23,7 +23,7 @@ A single-page application for tracking personal income and expenses. Manage cate
 
 ```bash
 # Clone the repository
-git clone https://github.com/IceFrosTv2/Personal-Finance-Tracker.git
+git clone https://github.com/IceFrosTv3/Personal-Finance-Tracker.git
 cd frontend
 
 # Install dependencies
@@ -38,7 +38,7 @@ Create a `.env` file in the project root:
 VITE_HOST="http://localhost:3000"
 ```
 
-`VITE_HOST` — base URL of the backend API server.
+`VITE_HOST` вЂ” base URL of the backend API server.
 
 ```bash
 # Start development server
@@ -54,56 +54,56 @@ npm run build
 
 ```
 frontend/
-├── public/
-│   └── templates/
-│       ├── layout.html                     # Main layout with sidebar
-│       └── pages/
-│           ├── auth/
-│           │   ├── login.html
-│           │   └── register.html
-│           ├── dashboard.html
-│           ├── 404.html
-│           └── operations/
-│               └── operations-list.html
-├── src/
-│   ├── main.ts                             # Entry point
-│   ├── router.ts                           # Client-side router
-│   ├── config/
-│   │   └── config.ts                       # API base URL and route names
-│   ├── services/
-│   │   ├── auth-service.ts                 # Login, register, logout
-│   │   ├── categories-service.ts           # Category CRUD
-│   │   └── operations-service.ts           # Operation CRUD + filters
-│   ├── components/
-│   │   ├── layout.ts                       # Sidebar, balance, menu state
-│   │   └── pages/
-│   │       ├── auth/
-│   │       │   ├── login.ts
-│   │       │   └── register.ts
-│   │       ├── dashboard.ts                # Charts with period filtering
-│   │       ├── base-filters-page.ts        # Base class: period filter logic
-│   │       ├── operations/
-│   │       │   ├── operations-list.ts      # Transaction list with filters
-│   │       │   └── operations-form.ts      # Create and edit operations
-│   │       └── base-categories/
-│   │           ├── base-categories.ts      # Category list (used for both income/expense)
-│   │           ├── base-categories-create.ts
-│   │           └── base-categories-edit.ts
-│   ├── utils/
-│   │   ├── tokens-utils.ts                 # Token storage and refresh logic
-│   │   ├── http-utils.ts                   # HTTP wrapper with auth headers
-│   │   ├── validator-form.ts               # Form validation
-│   │   ├── toast-utils.ts                  # Error notifications
-│   │   ├── modal-utils.ts                  # Delete confirmation modal
-│   │   ├── date-picker.ts                  # Tempus Dominus wrapper
-│   │   └── select-period.ts                # Period filter button state
-│   └── styles/
-│       ├── styles.scss                     # Styles entry point
-│       ├── _auth.scss
-│       ├── _layout.scss
-│       ├── _dashboard.scss
-│       └── _operations.scss
-└── index.html
+в”њв”Ђв”Ђ public/
+в”‚   в””в”Ђв”Ђ templates/
+в”‚       в”њв”Ђв”Ђ layout.html                     # Main layout with sidebar
+в”‚       в””в”Ђв”Ђ pages/
+в”‚           в”њв”Ђв”Ђ auth/
+в”‚           в”‚   в”њв”Ђв”Ђ login.html
+в”‚           в”‚   в””в”Ђв”Ђ register.html
+в”‚           в”њв”Ђв”Ђ dashboard.html
+в”‚           в”њв”Ђв”Ђ 404.html
+в”‚           в””в”Ђв”Ђ operations/
+в”‚               в””в”Ђв”Ђ operations-list.html
+в”њв”Ђв”Ђ src/
+в”‚   в”њв”Ђв”Ђ main.ts                             # Entry point
+в”‚   в”њв”Ђв”Ђ router.ts                           # Client-side router
+в”‚   в”њв”Ђв”Ђ config/
+в”‚   в”‚   в””в”Ђв”Ђ config.ts                       # API base URL and route names
+в”‚   в”њв”Ђв”Ђ services/
+в”‚   в”‚   в”њв”Ђв”Ђ auth-service.ts                 # Login, register, logout
+в”‚   в”‚   в”њв”Ђв”Ђ categories-service.ts           # Category CRUD
+в”‚   в”‚   в””в”Ђв”Ђ operations-service.ts           # Operation CRUD + filters
+в”‚   в”њв”Ђв”Ђ components/
+в”‚   в”‚   в”њв”Ђв”Ђ layout.ts                       # Sidebar, balance, menu state
+в”‚   в”‚   в””в”Ђв”Ђ pages/
+в”‚   в”‚       в”њв”Ђв”Ђ auth/
+в”‚   в”‚       в”‚   в”њв”Ђв”Ђ login.ts
+в”‚   в”‚       в”‚   в””в”Ђв”Ђ register.ts
+в”‚   в”‚       в”њв”Ђв”Ђ dashboard.ts                # Charts with period filtering
+в”‚   в”‚       в”њв”Ђв”Ђ base-filters-page.ts        # Base class: period filter logic
+в”‚   в”‚       в”њв”Ђв”Ђ operations/
+в”‚   в”‚       в”‚   в”њв”Ђв”Ђ operations-list.ts      # Transaction list with filters
+в”‚   в”‚       в”‚   в””в”Ђв”Ђ operations-form.ts      # Create and edit operations
+в”‚   в”‚       в””в”Ђв”Ђ base-categories/
+в”‚   в”‚           в”њв”Ђв”Ђ base-categories.ts      # Category list (used for both income/expense)
+в”‚   в”‚           в”њв”Ђв”Ђ base-categories-create.ts
+в”‚   в”‚           в””в”Ђв”Ђ base-categories-edit.ts
+в”‚   в”њв”Ђв”Ђ utils/
+в”‚   в”‚   в”њв”Ђв”Ђ tokens-utils.ts                 # Token storage and refresh logic
+в”‚   в”‚   в”њв”Ђв”Ђ http-utils.ts                   # HTTP wrapper with auth headers
+в”‚   в”‚   в”њв”Ђв”Ђ validator-form.ts               # Form validation
+в”‚   в”‚   в”њв”Ђв”Ђ toast-utils.ts                  # Error notifications
+в”‚   в”‚   в”њв”Ђв”Ђ modal-utils.ts                  # Delete confirmation modal
+в”‚   в”‚   в”њв”Ђв”Ђ date-picker.ts                  # Tempus Dominus wrapper
+в”‚   в”‚   в””в”Ђв”Ђ select-period.ts                # Period filter button state
+в”‚   в””в”Ђв”Ђ styles/
+в”‚       в”њв”Ђв”Ђ styles.scss                     # Styles entry point
+в”‚       в”њв”Ђв”Ђ _auth.scss
+в”‚       в”њв”Ђв”Ђ _layout.scss
+в”‚       в”њв”Ђв”Ђ _dashboard.scss
+в”‚       в””в”Ђв”Ђ _operations.scss
+в””в”Ђв”Ђ index.html
 ```
 
 ---
@@ -133,5 +133,5 @@ frontend/
 
 ## Author
 
-**Frontend Developer** — Andrei
-GitHub: [@IceFrosTv2](https://github.com/icefrostv2)
+**Frontend Developer** вЂ” Andrei
+GitHub: [@IceFrosTv3](https://github.com/IceFrosTv3)
